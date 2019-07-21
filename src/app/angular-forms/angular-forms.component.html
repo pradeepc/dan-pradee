@@ -1,0 +1,96 @@
+<div class="container">
+    <form #regForm="ngForm" (ngSubmit)="regSubmission(regForm.value)">
+        <div class="from-group">
+            <div class="row">
+                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                    <label>
+                        Username:
+                    </label>
+                </div>
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                    <input class="form-control" required type="text" name="username" id="username" #username="ngModel"
+                        ngModel placeholder="your username">
+
+                    <div class="errors">
+                        <div *ngIf="username.touched && username.invalid">
+                            Username is required.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                    <label>
+                        Email
+                    </label>
+                </div>
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                    <input class="form-control" required type="email" name="email" id="email" #email="ngModel" ngModel
+                        placeholder="your email" >
+
+                    <div class="errors">
+                        <!-- <div *ngIf="email.errors.pattern">
+                            Enter Valid Email
+                        </div> -->
+                        <div *ngIf="email.touched && email.invalid">
+                            email is required.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                    <label>
+                        Password
+                    </label>
+                </div>
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                    <input class="form-control" required type="password" name="password" id="password"
+                        #password="ngModel" ngModel placeholder="your password" minlength="6" maxlength="15">
+
+                    <div class="errors">
+
+                        <div *ngIf="password.touched && password.invalid">
+                            <div *ngIf="password.errors">
+                                Enter password between 6 and 15 characters.
+                            </div>
+                            password is required.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                    <label>
+                        Confirm Password
+                    </label>
+                </div>
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                    <input class="form-control" required type="password" name="confirmpassword" id="confirmpassword"
+                        #confirmpassword="ngModel" ngModel placeholder="your confirmpassword">
+
+                    <div class="errors">
+
+                        <div *ngIf="confirmpassword.touched && confirmpassword.invalid">
+                            Confirm password is required.
+                           
+                        </div>
+                        <div *ngIf="password.value!==confirmpassword.value && confirmpassword.touched">
+                                Password mismatch.
+                            </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <button mat-raised-button color="primary" [disabled]="regForm.invalid ||(password.value!==confirmpassword.value) " type="submit">
+            Submit
+        </button>
+    </form>
+</div>

@@ -1,0 +1,32 @@
+<div class="alert alert-primary" role="alert">
+    A simple primary alert—check it out!
+  </div>
+  <div class="alert alert-secondary" role="alert">
+    A simple secondary alert—check it out!
+  </div>
+  
+  <div class="example-button-row">
+    <button mat-button>Basic</button>
+    <button mat-button color="primary">Primary</button>
+    <button mat-button color="accent">Accent</button>
+    <button mat-button color="warn">Warn</button>
+    <button mat-button disabled>Disabled</button>
+    <a mat-button routerLink=".">Link</a>
+  </div>
+  
+  
+  <div>
+    <ol>
+      <li>
+        <mat-form-field>
+          <input matInput [(ngModel)]="name1" placeholder="What's your name?">
+        </mat-form-field>
+      </li>
+      <li>
+        <button mat-raised-button (click)="openDialog()">Pick one</button>
+      </li>
+      <li *ngIf="animal">
+        You chose: <i>{{animal}}</i>
+      </li>
+    </ol>
+  </div>
